@@ -1,0 +1,289 @@
+  <html>
+    <head>
+        <title>TimeLine</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-v4-grid-only@1.0.0/dist/bootstrap-grid.css"/ rel="import">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+        <style>
+            .main-timeline{
+            font-family: 'Poppins', sans-serif;
+            padding: 25px 10px;
+        }
+        .main-timeline:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .main-timeline .timeline{
+            width: calc(50% + 9px);
+            padding: 20px 30px 20px 0;
+            margin: -20px 0 0 0;
+            border-radius: 20px;
+            border: 10px solid transparent;
+            border-right: 10px solid rgb(163, 163, 163); /* timelines bar color */
+            float: left; 
+            position: relative;
+        }
+        .main-timeline .timeline:before,
+        .main-timeline .timeline:after{
+            content: '';
+            background-color: #DA2677;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            position: absolute;
+            right: -18px;
+            bottom: 40px;
+        }
+        .main-timeline .timeline:after{
+            border-radius: 3px;
+            transform: rotate(45deg);
+            right: 20px;
+        }
+        .main-timeline .timeline-content{
+            color: #fff;
+            background: linear-gradient(#D02578,#DA2677);
+            min-height: 130px;
+            padding: 0 0 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .main-timeline .timeline-content:hover{ text-decoration: none; }
+        .main-timeline .timeline-icon{
+            font-size: 40px;
+            line-height: 40px;
+            position: absolute;
+            bottom: 15px;
+            right: 16px;
+        }
+        .main-timeline .title{
+            color: #DA2677;
+            background-color: #fff;
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 12px;
+            margin: 0 0 5px;
+        }
+        .main-timeline .description{
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 20px;
+            margin: 20px 80px 0 20px;
+        }
+        .main-timeline .timeline:nth-child(even){
+            float: right;
+            padding: 20px 0 20px 30px;
+            margin: -20px 0 0 0;
+            border-right: none;
+            border-left: 10px solid rgb(163, 163, 163);   /* timelines bar color */
+        }
+        .main-timeline .timeline:nth-child(even):before{
+            right: auto;
+            left: -18px;
+        }
+        .main-timeline .timeline:nth-child(even):after{
+            right: auto;
+            left: 20px;
+        }
+        .main-timeline .timeline:nth-child(even) .timeline-icon{
+            right: auto;
+            left: 16px;
+        }
+        .main-timeline .timeline:nth-child(even) .description{ margin: 20px 20px 0 80px; }
+        .main-timeline .timeline:nth-child(5n+2):before,
+        .main-timeline .timeline:nth-child(5n+2):after{
+            background-color: #4EB543;
+        }
+        .main-timeline .timeline:nth-child(5n+2) .timeline-content{ background: linear-gradient(#80B02C,#4EB543); }
+        .main-timeline .timeline:nth-child(5n+2) .title{ color: #4EB543; }
+        .main-timeline .timeline:nth-child(5n+3):before,
+        .main-timeline .timeline:nth-child(5n+3):after{
+            background-color: #3A3270;
+        }
+        .main-timeline .timeline:nth-child(5n+3) .timeline-content{ background: linear-gradient(#65286D,#3A3270); }
+        .main-timeline .timeline:nth-child(5n+3) .title{ color: #3A3270; }
+        .main-timeline .timeline:nth-child(5n+4):before,
+        .main-timeline .timeline:nth-child(5n+4):after{
+            background-color: #0A2C80;
+        }
+        .main-timeline .timeline:nth-child(5n+4) .timeline-content{ background: linear-gradient(#2FD8D8,#0A2C80); }
+        .main-timeline .timeline:nth-child(5n+4) .title{ color: #0A2C80; }
+
+        .main-timeline .timeline:nth-child(5n+5):before,
+        .main-timeline .timeline:nth-child(5n+5):after{
+            background-color: #87780a;
+        }
+        .main-timeline .timeline:nth-child(5n+5) .timeline-content{ background: linear-gradient(#d8cd2f,#87780a); }
+        .main-timeline .timeline:nth-child(5n+5) .title{ color: #87780a; }
+
+        @media screen and (max-width:767px){
+            .main-timeline .timeline,
+            .main-timeline .timeline:nth-child(even){
+                width: 100%;
+                padding: 20px 0 20px 30px;
+                margin: -25px 0 0;
+                border-left: 10px solid #fff;
+                border-right: none;
+            }
+            .main-timeline .timeline:before,
+            .main-timeline .timeline:nth-child(even):before{
+                right: auto;
+                left: -17px;
+            }
+            .main-timeline .timeline:after,
+            .main-timeline .timeline:nth-child(even):after{
+                right: auto;
+                left: 20px;
+            }
+            .main-timeline .description,
+            .main-timeline .timeline:nth-child(even) .description{
+                margin: 20px 20px 0 80px;
+            }
+            .main-timeline .timeline-icon,
+            .main-timeline .timeline:nth-child(even) .timeline-icon{
+                left: 16px;
+                right: auto;
+            }
+        }
+        @media screen and (max-width:576px){
+            .main-timeline .timeline-content{ padding-bottom: 70px; }
+            .main-timeline .description,
+            .main-timeline .timeline:nth-child(even) .description{
+                margin: 20px 20px 0 20px;
+            }
+        }
+        .description.large{
+            display: none;
+        }
+        .more{
+            padding-left: 10px;
+            color: #2323cf;
+            cursor: pointer;
+            font-weight: bold;;
+        }
+        .less{
+            padding-left: 10px;
+            color: #2323cf;
+            cursor: pointer;
+            font-weight: bold;;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-timeline">
+                        <div class="timeline">
+                            <a href="#" class="timeline-content">
+                                <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+                                <h3 class="title">Web Designing</h3>
+                                <p class="description small">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    <span class='more'>...More<span>
+                                </p>
+                                <p class="description large">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                    <span class='less'>...Less<span>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="timeline">
+                            <a href="#" class="timeline-content">
+                                <div class="timeline-icon"><i class="fa fa-rocket"></i></div>    
+                                <h3 class="title">Web Development</h3>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                </p>
+                            </a>
+                        </div>
+
+
+                                <div class="timeline">
+                                    <a href="#" class="timeline-content">
+                                        <div class="timeline-icon"><i class="fa fa-rocket"></i></div>    
+                                        <h3 class="title">Web Development</h3>
+                                        <p class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                        </p>
+                                    </a>
+                                </div>
+
+
+
+                                <div class="timeline">
+                                    <a href="#" class="timeline-content">
+                                        <div class="timeline-icon"><i class="fa fa-user"></i></div>    
+                                        <h3 class="title">Java Script</h3>
+                                        <p class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                        </p>
+                                    </a>
+                                </div>
+
+
+                                <div class="timeline">
+                                    <a href="#" class="timeline-content">
+                                        <div class="timeline-icon"><i class="fa fa-briefcase"></i></div>
+                                        <h3 class="title">Web Designing</h3>
+                                        <p class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="timeline">
+                                    <a href="#" class="timeline-content">
+                                        <div class="timeline-icon"><i class="fa fa-briefcase"></i></div>
+                                        <h3 class="title">Web Designing</h3>
+                                        <p class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer males uada tellus lorem, et condimentum neque commodo Integer males uada tellus lorem, et condimentum neque commodo
+                                        </p>
+                                    </a>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+
+            $(".description.large").css("display", "none");
+
+            $(".more").click(function(){
+                $(this).parent().parent().find(".description.large").slideDown();
+                $(this).parent().parent().find(".description.small").css("display", "none");
+            });
+
+            $(".less").click(function(){
+                $(this).parent().parent().find(".description.small").slideUp().css("display", "block");
+                $(this).parent().parent().find(".description.large").css("display", "none");
+            });
+
+
+
+        });
+    </script>
+</html>
